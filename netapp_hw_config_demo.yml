@@ -75,36 +75,36 @@
      #    var: step1_11
      #- local_action: copy content={{ storage_agg_show.stdout_lines }} dest=/tmp/test1/1.7.txt 
 
-     - name: Test 1 - Hardware Configuration Step 1.8 Run network port show -node <node name> -role cluster
-       raw: network port show -node {{ nodename }} -role cluster
-       register: net_port_show
-     - debug:
-         var: net_port_show.stdout_lines
-     - set_fact:
-        step1_13: "{{ net_port_show.stdout | regex_search('.*(up).*') }}"
-        step1_14: "{{ net_port_show.stdout | regex_search('(e0)') }}"  
-        step1_15: "{{ net_port_show.stdout | regex_search('(?<=\\/).{4}') }}" 
-     - debug: 
-         var: step1_13
-     - debug: 
-         var: step1_14
-     - debug: 
-         var: step1_15
+     #- name: Test 1 - Hardware Configuration Step 1.8 Run network port show -node <node name> -role cluster
+     #  raw: network port show -node {{ nodename }} -role cluster
+     #  register: net_port_show
+     #- debug:
+     #    var: net_port_show.stdout_lines
+     #- set_fact:
+     #   step1_13: "{{ net_port_show.stdout | regex_search('.*(up).*') }}"
+     #   step1_14: "{{ net_port_show.stdout | regex_search('(e0)') }}"  
+     #   step1_15: "{{ net_port_show.stdout | regex_search('(?<=\\/).{4}') }}" 
+     #- debug: 
+     #    var: step1_13
+     #- debug: 
+     #    var: step1_14
+     #- debug: 
+     #    var: step1_15
      #- local_action: copy content={{ net_port_show.stdout_lines }} dest=/tmp/test1/1.8.txt
 
-     - name: Test 1 - Hardware Configuration Step 1.9 Run network port ifgrp show -node <node name>
-       raw: network port ifgrp show –node {{ nodename }} -ifgrp * -instance 
-       register: net_port_ifgrp
-     - debug:
-         var: net_port_ifgrp.stdout_lines
-     - set_fact:
-        step1_16: "{{ net_port_ifgrp.stdout | regex_search('.*(entries).*') }}"
-        step1_17: "{{ net_port_ifgrp.stdout | regex_search('.*(ao).*') }}"
-        step1_18: "{{ net_port_ifgrp.stdout | regex_search('.*(Create Policy).*') }}" 
-     - debug: 
-         var: step1_16
-     - debug: 
-         var: step1_17
+     #- name: Test 1 - Hardware Configuration Step 1.9 Run network port ifgrp show -node <node name>
+     #  raw: network port ifgrp show –node {{ nodename }} -ifgrp * -instance 
+     #  register: net_port_ifgrp
+     #- debug:
+     #    var: net_port_ifgrp.stdout_lines
+     #- set_fact:
+     #   step1_16: "{{ net_port_ifgrp.stdout | regex_search('.*(entries).*') }}"
+     #   step1_17: "{{ net_port_ifgrp.stdout | regex_search('.*(ao).*') }}"
+     #   step1_18: "{{ net_port_ifgrp.stdout | regex_search('.*(Create Policy).*') }}" 
+     #- debug: 
+     #    var: step1_16
+     #- debug: 
+     #    var: step1_17
      #- local_action: copy content={{ net_port_ifgrp.stdout_lines }} dest=/tmp/test1/1.9.txt 
      
      - name: Test 1 - Hardware Configuration Step 1.10 Run network port show -node <node name>
@@ -123,6 +123,7 @@
      - debug: 
          var: step1_21
      #- local_action: copy content={{ net_port_show_n.stdout_lines }} dest=/tmp/test1/1.10.txt 
+     #
          
 
 
