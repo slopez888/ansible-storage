@@ -17,7 +17,7 @@
          var: step1_2
      - debug:
          var: step1_3
-     - local_action: copy content={{ system_node_show.stdout_lines }} dest=/tmp/test1/1.2.txt
+     #- local_action: copy content={{ system_node_show.stdout_lines }} dest=/tmp/test1/1.2.txt
 
      - name: Test 1 - Hardware Configuration Step 1.4 Run license show
        raw: license show
@@ -28,7 +28,7 @@
         step1_4: "{{ license_show.stdout | regex_search('.*(License).*') }}"
      - debug: 
          var: step1_4  
-     - local_action: copy content={{ license_show.stdout_lines }} dest=/tmp/test1/1.4.txt
+     #- local_action: copy content={{ license_show.stdout_lines }} dest=/tmp/test1/1.4.txt
 
      - name: Test 1 - Hardware Configuration Step 1.5 Run node run <node> sysconfig -a
        raw: node run {{ nodename }} sysconfig -a
@@ -51,7 +51,7 @@
          var: step1_8
      - debug: 
          var: step1_9
-     - local_action: copy content={{ node_run.stdout_lines }} dest=/tmp/test1/1.5.txt
+     #- local_action: copy content={{ node_run.stdout_lines }} dest=/tmp/test1/1.5.txt
 
      - name: Test 1 - Hardware Configuration Step 1.6 Run disk show -owner <node name>
        raw: disk show -owner {{ nodename }} -fields rpm,shelf,type,usable-size,container-type
@@ -73,7 +73,7 @@
         step1_11: "{{ storage_agg_show.stdout | regex_search('.*(DISK).*') }}" 
      - debug: 
          var: step1_11
-     - local_action: copy content={{ storage_agg_show.stdout_lines }} dest=/tmp/test1/1.7.txt 
+     #- local_action: copy content={{ storage_agg_show.stdout_lines }} dest=/tmp/test1/1.7.txt 
 
      - name: Test 1 - Hardware Configuration Step 1.8 Run network port show -node <node name> -role cluster
        raw: network port show -node {{ nodename }} -role cluster
@@ -90,7 +90,7 @@
          var: step1_14
      - debug: 
          var: step1_15
-     - local_action: copy content={{ net_port_show.stdout_lines }} dest=/tmp/test1/1.8.txt
+     #- local_action: copy content={{ net_port_show.stdout_lines }} dest=/tmp/test1/1.8.txt
 
      - name: Test 1 - Hardware Configuration Step 1.9 Run network port ifgrp show -node <node name>
        raw: network port ifgrp show –node {{ nodename }} -ifgrp * -instance 
@@ -105,7 +105,7 @@
          var: step1_16
      - debug: 
          var: step1_17
-     - local_action: copy content={{ net_port_ifgrp.stdout_lines }} dest=/tmp/test1/1.9.txt 
+     #- local_action: copy content={{ net_port_ifgrp.stdout_lines }} dest=/tmp/test1/1.9.txt 
      
      - name: Test 1 - Hardware Configuration Step 1.10 Run network port show -node <node name>
        raw: network port show –node {{ nodename }} -role data -link up -fields role,mtu,speed-admin,speed-oper
@@ -122,7 +122,7 @@
          var: step1_20
      - debug: 
          var: step1_21
-     - local_action: copy content={{ net_port_show_n.stdout_lines }} dest=/tmp/test1/1.10.txt 
+     #- local_action: copy content={{ net_port_show_n.stdout_lines }} dest=/tmp/test1/1.10.txt 
          
 
 
