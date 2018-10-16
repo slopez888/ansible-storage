@@ -64,15 +64,15 @@
          var: step1_10
     # - local_action: copy content={{ disk_show.stdout_lines }} dest=/tmp/test1/1.6.txt 
 
-     - name: Test 1 - Hardware Configuration Step 1.7 Run storage aggregate show-spare-disks -owner <node name>
-       raw: storage aggregate show-spare-disks -owner {{ nodename }}
-       register: storage_agg_show
-     - debug:
-         var: storage_agg_show.stdout_lines
-     - set_fact:
-        step1_11: "{{ storage_agg_show.stdout | regex_search('.*(DISK).*') }}" 
-     - debug: 
-         var: step1_11
+     #- name: Test 1 - Hardware Configuration Step 1.7 Run storage aggregate show-spare-disks -owner <node name>
+     #  raw: storage aggregate show-spare-disks -owner {{ nodename }}
+     #  register: storage_agg_show
+     #- debug:
+     #    var: storage_agg_show.stdout_lines
+     #- set_fact:
+     #   step1_11: "{{ storage_agg_show.stdout | regex_search('.*(DISK).*') }}" 
+     #- debug: 
+     #    var: step1_11
      #- local_action: copy content={{ storage_agg_show.stdout_lines }} dest=/tmp/test1/1.7.txt 
 
      - name: Test 1 - Hardware Configuration Step 1.8 Run network port show -node <node name> -role cluster
