@@ -62,7 +62,7 @@
         step1_10: "{{ disk_show.stdout | regex_search('.*(NET).*') }}" 
      - debug: 
          var: step1_10
-     - local_action: copy content={{ disk_show.stdout_lines }} dest=/tmp/test1/1.6.txt 
+    # - local_action: copy content={{ disk_show.stdout_lines }} dest=/tmp/test1/1.6.txt 
 
      - name: Test 1 - Hardware Configuration Step 1.7 Run storage aggregate show-spare-disks -owner <node name>
        raw: storage aggregate show-spare-disks -owner {{ nodename }}
