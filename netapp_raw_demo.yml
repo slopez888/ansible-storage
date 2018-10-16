@@ -1,0 +1,18 @@
+---
+ - hosts: netapp
+   gather_facts: no
+   tasks:
+     - name: NetApp RAW Module Demo
+       raw: volume show
+       register: netapp_output
+     - debug:
+         var: netapp_output
+     - name: NetApp RAW Module Demo
+       raw: statistics aggregate show
+       register: netapp_output
+     - debug:
+         var: netapp_output
+
+
+## ansible-playbook -e "ansible_user=DomainName\\domainuser" --ask-pass netapp_raw_demo.yml
+
